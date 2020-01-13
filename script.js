@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    let autocompleteEntries = [];
     let cities = [];
     $.ajax({
         dataType: 'json',
@@ -11,9 +12,12 @@ $(document).ready(function() {
             const entries = data[1].entries;
             $('#mapModal iframe').attr('src', entries[0].mapurl);
             entries.forEach(function(entry) {
-                if (!cities.includes(entry.city)) {
-                    cities.push(entry.city); // cities array is used for autocomplete                 
-                    
+                if (!autocompleteEntries.includes(entry.city)) {
+                    autocompleteEntries.push(entry.city);
+                    cities.push(entry.city); // this keeps only cities and will be used to population hotel location filter.
+                }
+                if (!autocompleteEntries.includes(entry.hotelName)) {
+                    autocompleteEntries.push(entry.hotelName); 
                 }
                 if (entry.price > max) {
                     max = entry.price;
@@ -265,7 +269,7 @@ $(document).ready(function() {
             $('#hotelLocationDiv > select').change(hideOrShow)
             $('#sortby > select').change(hideOrShow)
             /*initiate the autocomplete function on the "searchTerm" element, and pass along the cities array as possible autocomplete values*/
-            autocomplete(document.getElementById("searchTerm"), cities);                        
+            autocomplete(document.getElementById("searchTerm"), autocompleteEntries);                        
             updateTotalCost();          
             $('body > #ajaxError').hide();
             $('body > #ajaxSuccess').show();
