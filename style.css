@@ -11,7 +11,7 @@ body {
 #searchbar {
     display: flex;
     flex-direction: column;
-    padding: 5px 360px;
+    padding: 5px 23vw;
     background-color: #37454d;
 }
 
@@ -76,6 +76,19 @@ body {
 
 #dates > #checkinDiv, #dates > #checkoutDiv {
     margin-right: 5px;
+}
+
+@media (max-width: 1301px) { 
+    #dates {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #dates > div {
+        margin-bottom: 5px;
+        flex: 1 1 auto;        
+        margin-right: 0px !important;
+    }
 }
 
 #checkinDiv, #checkoutDiv {
@@ -154,6 +167,20 @@ select {
     text-align-last:center;
     color: #37454d;
     font-weight: bold;
+}
+
+@media (max-width: 1031px) { 
+    #filters {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #priceRangeDiv, #propertyTypeDiv, #guestRatingDiv, #hotelLocationDiv, #moreFiltersDiv { 
+        width: 100% !important;
+        border: none !important;
+        padding: 0px !important;
+        margin-bottom: 5px;
+    }
 }
 
 #priceRangeDiv {
@@ -271,7 +298,7 @@ background-color: #cdd0d2;
 
 #results {
     flex: 1 1 auto;
-    padding: 5px 360px;
+    padding: 5px 23vw;
     background-color: rgb(235, 236, 237);
 }
 
