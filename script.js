@@ -4,7 +4,7 @@ $(document).ready(function() {
     $.ajax({
         dataType: 'json',
         type: 'get',
-        url: 'https://api.myjson.com/bins/1fuxx2',
+        url: 'https://api.jsonbin.io/b/5e941c8ce41a7f4da62c4744',
         success: function(data) {
             let max = -Infinity;
             let min = Infinity;
